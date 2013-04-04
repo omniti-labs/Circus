@@ -72,7 +72,7 @@ class Module(object):
         ports = {}
         for line in output.split("\n"):
             m = re.match(
-                r'[.0-9]+\.(\d+) = STRING: "?(?:ethernet)?([0-9/]+)"?', line)
+                r'[.0-9]+\.(\d+) = STRING: "?(?:ethernet|ge|xe|cpe)?-?([0-9./]+)"?', line)
             if m:
                 if not pattern or re.match(pattern, m.group(2)):
                     ports[m.group(2)] = m.group(1)
